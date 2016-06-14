@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lefty Righty Plugin</title>
+</head>
+
+<link href="css/reset.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<body>
+
+<div class="nav righty" style="z-index: 1;">
+    <p>This is positioned absolute</p>
+</div>
+
+<div class="lefty-righty">
+    <div class="one">
+        <p>Test 1</p>
+
+        <div>
+            <div class="lr-item" style="border: 2px solid black; width:25%; float: left;">
+                <p>Child 1</p>
+
+            </div>
+
+            <div class="lr-item" style="border: 2px solid black; width:25%; float: left;">
+                <p>Child 2</p>
+            </div>
+
+            <div class="lr-item" style="border: 2px solid black; width:25%; float: left;">
+                <p>Child 3</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="two">
+        <p>Test 2</p>
+
+        <div style="border: 2px solid black; width:50%; float: left;">
+            <p>Child 1</p>
+        </div>
+
+        <div style="border: 2px solid black; width:50%; float: left;">
+            <p>Child 2</p>
+        </div>
+    </div>
+
+    <div class="three">
+        <p>Test 3</p>
+
+        <div style="border: 2px solid black; width:50%; float: left;">
+            <p>Child 1</p>
+        </div>
+
+        <div style="border: 2px solid black; width:50%; float: left;">
+            <p>Child 2</p>
+        </div>
+    </div>
+</div>
+
+<a href="#">Flip</a>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="js/lefty-righty.js"></script>
+
+<script>
+    $(".lefty-righty").leftyRighty({
+        //backgroundColor: "orange"
+    });
+</script>
+</body>
+</html>
