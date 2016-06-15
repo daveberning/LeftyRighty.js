@@ -7,34 +7,31 @@ those that want elements positions to
 cater to their mobile needs.
 ---------------------------------- */
 
-// GLOBALS
-var leftyRightyRow = $('.lefty-righty');
-var leftyRightyItems = leftyRightyRow.children();
-var leftyRightyItemCount = leftyRightyItems.length;
-
-var leftyItem = $('.lefty');
-var rightyItem = $('.righty');
-
-var reverseRow = $('.lf-reverse');
-var reverseRowItems = reverseRow.children();
-var reverseRowItemsCount = reverseRowItems.length;
-
-var leftyPosition = $('.lefty').css('position');
-var rightyPosition = $('.righty').css('position');
-
 function init() {
-    // Do magic on button click
-    $("a").on('click', function() { // eventually want to toggle
+    // GLOBALS
+    var leftyRightyRow = $('.lefty-righty');
+    var leftyRightyItems = leftyRightyRow.children();
+    var leftyItem = $('.lefty');
+    var rightyItem = $('.righty');
+
+    var reverseRow = $('.lf-reverse');
+    var reverseRowItems = reverseRow.children();
+    var reverseRowItemsCount = reverseRowItems.length; // number of children in lf-reverse
+
+    var leftyPosition = $('.lefty').css('position');
+    var rightyPosition = $('.righty').css('position');
+
+    $('a').on('click',function(){
         flipLeftRighty();
         reverseSubItems();
         reverseAllItems();
     });
 }
 
-function flipLeftRighty() {
-    if ((leftyRightyItemCount == 2) || (leftyRightyItemCount == 3)) {
-        leftyRightyRow.append(leftyRightyItems.get().reverse());
-    }
+function flipLeftRighty() { // reverse order on click
+    var leftyRightyRow = $('.lefty-righty');
+    var leftyRightyItems = leftyRightyRow.children();
+    leftyRightyRow.append(leftyRightyItems.get().reverse());
 
     if (leftyRightyItemCount > 3) {
         var swapElements = function(siblings, first, last) {
@@ -76,6 +73,7 @@ function flipLeftRighty() {
             });
         }
     }
+
 }
 
 function reverseSubItems() {

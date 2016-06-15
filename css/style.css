@@ -11,6 +11,11 @@ html {
 .lefty-righty {
     position: relative;
 }
+
+.lf-reverse {
+    position: relative;
+}
+
 .row {
     overflow: hidden;
 }
