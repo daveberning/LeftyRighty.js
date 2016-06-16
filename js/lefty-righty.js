@@ -8,32 +8,23 @@ cater to their mobile needs.
 ---------------------------------- */
 
 function init() {
-    // GLOBALS
-    var leftyRightyRow = $('.lefty-righty');
-    var leftyRightyItems = leftyRightyRow.children();
-    var leftyItem = $('.lefty');
-    var rightyItem = $('.righty');
-
-    var reverseRow = $('.lf-reverse');
-    var reverseRowItems = reverseRow.children();
-    var reverseRowItemsCount = reverseRowItems.length; // number of children in lf-reverse
-
-    var leftyPosition = $('.lefty').css('position');
-    var rightyPosition = $('.righty').css('position');
-
     $('a').on('click',function(){
         flipLeftRighty();
         reverseSubItems();
-        reverseAllItems();
     });
 }
 
 function flipLeftRighty() { // reverse order on click
     var leftyRightyRow = $('.lefty-righty');
     var leftyRightyItems = leftyRightyRow.children();
-    leftyRightyRow.append(leftyRightyItems.get().reverse());
 
-    if (leftyRightyItemCount > 3) {
+    var leftyRightyReverse = $(".lf-reverse");
+
+    if (leftyRightyReverse.length) {
+        leftyRightyRow.append(leftyRightyItems.get().reverse()); // reserve all items
+    }
+
+    if (leftyRightyItems > 3) {
         var swapElements = function(siblings, first, last) {
             var firstChild = $(siblings.get(first));
             var lastChild = $(siblings.get(last));
@@ -44,15 +35,12 @@ function flipLeftRighty() { // reverse order on click
                 $(siblings.get(last)).insertBefore($(siblings.get(first+1)));
             }
         }
-
-        $(function() {
-            swapElements($(leftyRightyItems), 0, leftyRightyItemCount-1);
-        });
     }
 
-    // Think of this as the off-canvas menu itself. Maybe add a new class?
-
     if ($('div').hasClass('lefty')) {
+        var leftyItem = $(".lefty");
+        var rightyPosition = rightyItem.css("position");
+
         if ($(leftyItem).css(leftyPosition) != '') {
             var leftyDirection = $(leftyItem).css('left');
             $(leftyItem).css({
@@ -62,7 +50,11 @@ function flipLeftRighty() { // reverse order on click
                 'background' : 'red'
             });
         }
+
     } else if ($('div').hasClass('righty')) {
+        var rightyItem = $(".righty");
+        var rightyPosition = rightyItem.css("position");
+
         if ($(rightyItem).css(rightyPosition) != '') {
             var rightyDirection = $(rightyItem).css('right');
             $(rightyItem).css({
@@ -73,10 +65,12 @@ function flipLeftRighty() { // reverse order on click
             });
         }
     }
-
 }
 
 function reverseSubItems() {
+    var leftyRightyRow = $('.lefty-righty');
+    var leftyRightyItems = leftyRightyRow.children();
+
     var swapChildren = function(siblings, first, last) {
         var firstChild = $(siblings.get(first));
         var lastChild = $(siblings.get(last));
@@ -88,17 +82,10 @@ function reverseSubItems() {
         }
     }
 
-    if (leftyRightyItemCount >= 2) {
+    if (leftyRightyItems >= 2) {
         $(function() {
             swapChildren($(leftyRightyItems), 0, leftyRightyItemCount);
         });
-    }
-}
-
-function reverseAllItems() {
-    // reverse all sub items
-    if (reverseRowItemsCount >= 2) {
-        reverseRow.append(reverseRowItems.get().reverse());
     }
 }
 
