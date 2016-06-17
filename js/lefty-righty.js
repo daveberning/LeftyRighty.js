@@ -7,36 +7,32 @@ those that want elements positions to
 cater to their mobile needs.
 ---------------------------------- */
 
+/*
+    // DEVELOPMENT NOTES
+
+    Allow divs to be nested. Reverse only the ROW with lf-reverse class. If children should be
+    reversed then add lf-reverse class. Currently, lf-reverse does not support nesting.
+*/
+
 function init() {
     $('a').on('click',function(){
         flipLeftRighty();
         reverseSubItems();
     });
-}
+} // end init
 
 function flipLeftRighty() { // reverse order on click
     var leftyRightyRow = $('.lefty-righty');
     var leftyRightyItems = leftyRightyRow.children();
+    var leftyRightyReverseAll = $(".lf-reverse");
 
-    var leftyRightyReverse = $(".lf-reverse");
-
-    if (leftyRightyReverse.length) {
+    if (leftyRightyReverseAll.length) {
         leftyRightyRow.append(leftyRightyItems.get().reverse()); // reserve all items
     }
 
-    if (leftyRightyItems > 3) {
-        var swapElements = function(siblings, first, last) {
-            var firstChild = $(siblings.get(first));
-            var lastChild = $(siblings.get(last));
 
-            firstChild.insertAfter($(siblings.get(last)));
-
-            if(last!==first+1) {
-                $(siblings.get(last)).insertBefore($(siblings.get(first+1)));
-            }
-        }
-    }
-
+    // DEFINE LEFT OR RIGHT CONTAINER
+    // IF NO OTHER LEFTY-RIGHT CLASS DEFINE, STILL FLIP LEFTY OR RIGHTY DIV
     if ($('div').hasClass('lefty')) {
         var leftyItem = $(".lefty");
         var rightyPosition = rightyItem.css("position");
@@ -65,7 +61,7 @@ function flipLeftRighty() { // reverse order on click
             });
         }
     }
-}
+} // end flipLeftRighty
 
 function reverseSubItems() {
     var leftyRightyRow = $('.lefty-righty');
@@ -87,7 +83,7 @@ function reverseSubItems() {
             swapChildren($(leftyRightyItems), 0, leftyRightyItemCount);
         });
     }
-}
+} // reverseSubItems
 
 (function ($) {
     $.fn.leftyRighty = function(options) {
