@@ -21,13 +21,15 @@ function init() {
     });
 } // end init
 
-function flipLeftRighty() { // reverse order on click
+function flipLeftRighty(e) { // reverse order on click
     var leftyRightyRow = $('.lefty-righty');
-    var leftyRightyItems = leftyRightyRow.children();
-    var leftyRightyReverseAll = $(".lf-reverse");
+    var leftyRightyItems = leftyRightyRow.find(".lf-item");
+    var leftyRightyReverseAll = $(".lr-reverse");
+    var leftyRightyReverseAllItems = leftyRightyReverseAll.find(".lr-item");
 
-    if (leftyRightyReverseAll.length) {
-        leftyRightyRow.append(leftyRightyItems.get().reverse()); // reserve all items
+    // lr-reverse has .lr-item then reverse children
+    if (leftyRightyReverseAll.length && leftyRightyReverseAllItems.length) {
+        leftyRightyReverseAll.append(leftyRightyReverseAllItems.get().reverse()); // reserve all items
     }
 
 
