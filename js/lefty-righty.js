@@ -23,7 +23,7 @@ function init() {
 
 function flipLeftRighty(e) { // reverse order on click
     var leftyRightyRow = $('.lefty-righty');
-    var leftyRightyItems = leftyRightyRow.find(".lf-item");
+    var leftyRightyItems = leftyRightyRow.find(".lr-item");
     var leftyRightyReverseAll = $(".lr-reverse");
     var leftyRightyReverseAllItems = leftyRightyReverseAll.find(".lr-item");
 
