@@ -1,95 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Lefty Righty Plugin</title>
+  <meta charset="utf-8">
+
+  <title>Lefty Righty Plugin</title>
+
+  <meta name="description" content="LeftyRighty">
+  <meta name="author" content="Dave Berning, Kenny Hill">
+
+
+  <link rel="stylesheet" href="css/style.css?v=1.0">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="js/lefty-righty.js"></script>
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 </head>
 
-<link href="css/reset.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
 <body>
-
-<div class="nav righty" style="z-index: 1;">
-    <p>This is positioned absolute.</p>
-</div>
-
-<div class="lefty-righty lf-reverse">
-    <div class="one lr-item">
-        <p>Test 1</p>
-
-        <div class="lr-reverse">
-            <div class="lr-item" style="border: 2px solid black; width:25%; float: left;">
-                <p>Child 1</p>
+    <div class="container">
+        <div class="row lr-reverse">
+            <div class="col-sm-4 lr-item">
+                <p>Test 1</p>
             </div>
-
-            <div class="lr-item" style="border: 2px solid black; width:25%; float: left;">
-                <p>Child 2</p>
+            <div class="col-sm-4 lr-item">
+                <p>Test 2</p>
             </div>
-
-            <div class="lr-item" style="border: 2px solid black; width:25%; float: left;">
-                <p>Child 3</p>
+            <div class="col-sm-4 lr-item">
+                <p>Test 3</p>
             </div>
         </div>
-    </div>
 
-    <div class="two lr-item">
-        <p>Test 2</p>
-
-        <div style="border: 2px solid black; width:50%; float: left;">
-            <p>Child 1</p>
-        </div>
-
-        <div style="border: 2px solid black; width:50%; float: left;">
-            <p>Child 2</p>
-        </div>
-    </div>
-
-    <div class="three lr-item">
-        <p>Test 3</p>
-
-        <div style="border: 2px solid black; width:50%; float: left;">
-            <p>Child 1</p>
-        </div>
-
-        <div style="border: 2px solid black; width:50%; float: left;">
-            <p>Child 2</p>
+        <div class="row lr">
+            <div class="col-sm-4 lr-item">
+                <p>Test 1</p>
+            </div>
+            <div class="col-sm-4 lr-item">
+                <p>Test 2</p>
+            </div>
+            <div class="col-sm-4 lr-item">
+                <p>Test 3</p>
+            </div>
         </div>
     </div>
 
-    <div class="four lr-item">
-        <p>Test 4</p>
-
-        <div style="border: 2px solid black; width:50%; float: left;">
-            <p>Child 1</p>
-        </div>
-
-        <div style="border: 2px solid black; width:50%; float: left;">
-            <p>Child 2</p>
-        </div>
-    </div>
-
-    <div class="five lr-item">
-        <p>Test 5</p>
-
-        <div style="border: 2px solid black; width:50%; float: left;">
-            <p>Child 1</p>
-        </div>
-
-        <div style="border: 2px solid black; width:50%; float: left;">
-            <p>Child 2</p>
-        </div>
-    </div>
-</div>
-
-<a href="#" style="position: absolute; bottom: 300px; display: block; left: 50%;">Flip</a>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<script src="js/lefty-righty.js"></script>
+    <a href="#">Flip</a>
+</body>
 
 <script>
-    $(".lefty-righty").leftyRighty({
-        //backgroundColor: "orange"
-    });
+    $('body').leftyrighty();
 </script>
-</body>
+
 </html>
