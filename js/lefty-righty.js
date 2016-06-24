@@ -1,3 +1,9 @@
+/* -----------------------------------------------------
+    Copyright (c) 2016 Parsec Digital Media, LLC
+    All Rights Reserved
+    Version: Development
+------------------------------------------------------ */
+
 function init() {
     $('a').on('click',function() {
         reverseAll();
@@ -29,11 +35,20 @@ function reverseFirstLast() { // push children into array, flip first and last
             lrItem.each(
                 function(i){
                     itemArray.push(this);
+                    return itemArray;
                 }
             );
 
-            console.log(itemArray[0]); // gets first .lr-item in .lr array
-            console.log($(itemArray).get(-1)); // gets last .lr-item in .lr array
+            var firstItem = $(itemArray)[0]; // gets first .lr-item in .lr array
+            var lastItem = $(itemArray).get(-1); // gets last .lr-item in .lr array
+
+            console.log(firstItem);
+            console.log(lastItem);
+
+            // Trying the insert last before the first, and first after the last
+            $(firstItem).insertBefore($(itemArray).get(-1));
+            $(lastItem).insertBefore($(itemArray)[0]);
+
         });
    };
    $('.lr').flipFirstLast();
