@@ -1,0 +1,23 @@
+.lr-item {
+    border: 1px solid;
+    background: purple;
+    padding: 10px;
+    margin: 15px 0;
+    color: white;
+}
+
+.row .lr-item.one {
+    background: blue;
+}
+
+.row .lr-item.two {
+    background: red;
+}
+
+.row .lr-item.three {
+    background: green;
+}
+
+.row .lr-item.four {
+    background: pink;
+}
