@@ -32,8 +32,8 @@ function reverseFirstLast() { // push children into array, flip first and last
                 }
             );
 
-            itemArray.push(itemArray.shift());
-            console.log(itemArray);
+            console.log(itemArray[0]); // gets first .lr-item in .lr array
+            console.log($(itemArray).get(-1)); // gets last .lr-item in .lr array
         });
    };
    $('.lr').flipFirstLast();
