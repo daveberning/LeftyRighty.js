@@ -17,14 +17,27 @@ function reverseAll() { // reverse children of lr and it's children and it's chi
     $('.lr-reverse').reverseChildren();
 }
 
-// function reverseFirstLast() { // reverse first and last child only
-//     $.fn.flipFirstLast = function() {
-//         var list = $(this);
-//         var listItems = list.children('.lr-item');
-//         list.append(listItems.get().reverse());
-//     };
-//     $('.lr').flipFirstLast();
-// }
+function reverseFirstLast() { // push children into array, flip first and last
+    $.fn.flipFirstLast = function() {
+        return this.each(function() {
+            var $this = $(this);
+            var lrItem = $this.children('.lr-item');
+            var lrItemCount = $this.children('.lr-item').length;
+
+            var itemArray = [];
+
+            lrItem.each(
+                function(i){
+                    itemArray.push(this);
+                }
+            );
+
+            itemArray.push(itemArray.shift());
+            console.log(itemArray);
+        });
+   };
+   $('.lr').flipFirstLast();
+}
 
 
 (function ($) {
