@@ -3,6 +3,11 @@
     All Rights Reserved
     Version: Development
 ------------------------------------------------------ */
+// GLOBALS
+var rowReverse = '.lr-reverse';
+var rowFirstLast = '.lr-first-last';
+var rowSpecific = '.lr-specific';
+var rowChild = '.lr-item'; // targets all bootstrap columns, default off
 
 function init() {
     $('a').on('click',function() {
@@ -10,25 +15,44 @@ function init() {
         reverseFirstLast();
     });
 }
-
 function reverseAll() { // reverse children of lr and it's children and it's children
+    var lrSpecificItemCount = $(rowReverse).children(rowSpecific).length;
+    var lrItemCount = $(rowReverse).children(rowChild).length;
+
     $.fn.reverseChildren = function() {
+
         return this.each(function(){
-            var $this = $(this);
-                $this.children('.lr-item').each(function(){
-                $this.prepend(this);
-            });
+            // reverse ONLY lr-specific children
+
+            if (lrSpecificItemCount) {
+
+                var $this = $(this);
+                $this.children(rowSpecific).each(function(){
+                    $this.prepend(this);
+                    console.log("specific item is present");
+                });
+
+            } else {
+                // reverse every child
+                var $this = $(this);
+                $this.children(rowChild).each(function(){
+                    $this.prepend(this);
+                    console.log("specific item is NOT present");
+                });
+            }
+
         });
     };
-    $('.lr-reverse').reverseChildren();
+
+    $(rowReverse).reverseChildren();
 }
 
 function reverseFirstLast() { // push children into array, flip first and last
     $.fn.flipFirstLast = function() {
         return this.each(function() {
             var $this = $(this);
-            var lrItem = $this.children('.lr-item');
-            var lrItemCount = $this.children('.lr-item').length;
+            var lrItem = $this.children(rowChild);
+            var lrItemCount = $this.children(rowChild).length;
 
             var itemArray = [];
 
@@ -48,12 +72,54 @@ function reverseFirstLast() { // push children into array, flip first and last
             $(firstItem).before(lastItem,centerItems); // this does the magic
         });
    };
-   $('.lr-first-last').flipFirstLast();
+   $(rowFirstLast).flipFirstLast();
 }
+
+// function reverseSpecific() { // flip specific divs
+//     $.fn.flipSpecific = function() {
+//         return this.each(function() {
+//             var $this = $(this);
+//             var lrItem = $this.children(rowChild);
+//             var lrItemCount = $this.children(rowChild).length;
+//
+//             var itemArray = [];
+//
+//             lrItem.each(
+//                 function(i){
+//                     itemArray.push(this);
+//                     return itemArray;
+//                 }
+//             );
+//
+//             console.log(itemArray[2]);
+//         });
+//    };
+//    $(rowSpecific).flipSpecific();
+// }
 
 
 (function ($) {
-    $.fn.leftyrighty = function() {
+    $.fn.leftyrighty = function(options) {
         init();
+
+        // This is the easiest way to have default options.
+        var defaults = $.extend({
+            color: "black",
+            backgroundColor: "white",
+            bootstrapSupport: false
+        }, options);
+
+        var settings = $.extend({}, defaults, options);
+
+        // // Greenify the collection based on the settings variable.
+        // return this.css({
+        //     color: settings.color,
+        //     backgroundColor: settings.backgroundColor,
+        // });
+
+        if(settings.bootstrapSupport) { // option to check if dev is using BS
+            rowChild = '[class^="col-"]';
+            console.log(rowChild);
+        }
     };
 }(jQuery));

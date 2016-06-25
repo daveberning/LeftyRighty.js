@@ -21,3 +21,26 @@
 .row .lr-item.four {
     background: pink;
 }
+
+a {
+    padding: 20px;
+    width: 200px;
+    display: block;
+    background-color: #e00122 !important;
+    color: white !important;
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    margin-left: -100px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
+.fourth {
+    width: 25%;
+    float: left;
+}
