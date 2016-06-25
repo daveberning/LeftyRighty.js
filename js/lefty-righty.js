@@ -25,10 +25,23 @@ function reverseAll() { // reverse children of lr and it's children and it's chi
             // reverse ONLY lr-specific children
 
             if (lrSpecificItemCount) {
-
                 var $this = $(this);
-                $this.children(rowSpecific).each(function(){
-                    $this.prepend(this);
+                var lrItem = $this.children(rowChild);
+                var lrItemCount = $this.children(rowChild).length;
+                var itemArray = [];
+
+                lrItem.each(
+                    function(i){
+                        itemArray.push(this);
+                        return itemArray;
+                    }
+                );
+
+                itemSpecificArray = itemArray.get(".lr-specific");
+                console.log(itemSpecificArray);
+
+                $this.children(lrItem).each(function(){
+                    //$this.prepend(this);
                     console.log("specific item is present");
                 });
 
