@@ -39,7 +39,7 @@ function reverseAll() { // reverse children of lr and it's children and it's chi
                     console.log("specific item is NOT present");
                 });
 
-                //console.log(specificItem);
+                console.log(specificItem);
                 console.log("specific item is present");
 
             } else {
