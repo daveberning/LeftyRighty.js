@@ -2,6 +2,8 @@
     Copyright (c) 2016 Parsec Digital Media, LLC
     All Rights Reserved
     Version: Development
+
+    Developed by: Dave Berning & Kenny Hill
 ------------------------------------------------------ */
 // GLOBALS
 var rowReverse = '.lr-reverse';
@@ -28,6 +30,7 @@ function reverseAll() { // reverse children of lr and it's children and it's chi
                 var $this = $(this);
                 var lrItem = $this.children(rowChild);
                 var lrItemCount = $this.children(rowChild).length;
+                var specificItem = lrItem.filter(rowSpecific)
                 var itemArray = [];
 
                 lrItem.each(
@@ -37,13 +40,10 @@ function reverseAll() { // reverse children of lr and it's children and it's chi
                     }
                 );
 
-                itemSpecificArray = itemArray.get(".lr-specific");
-                console.log(itemSpecificArray);
+                console.log($(rowChild).index($('.lr-specific')));
 
-                $this.children(lrItem).each(function(){
-                    //$this.prepend(this);
-                    console.log("specific item is present");
-                });
+                console.log(specificItem);
+                console.log("specific item is present");
 
             } else {
                 // reverse every child
@@ -104,7 +104,10 @@ function reverseFirstLast() { // push children into array, flip first and last
 //                 }
 //             );
 //
-//             console.log(itemArray[2]);
+//             current = lrItem.filter('.lr-specific'),
+//             index = lrItem.index(current);
+//
+//             console.log($(lrItem).index($('.lr-specific')));
 //         });
 //    };
 //    $(rowSpecific).flipSpecific();
