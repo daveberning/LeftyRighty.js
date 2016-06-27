@@ -32,17 +32,14 @@ function reverseAll() { // reverse children of lr and it's children and it's chi
                 var lrItemCount = $this.children(rowChild).length;
                 var specificItem = lrItem.filter(rowSpecific)
                 var itemArray = [];
+                var specificArray = [];
 
-                lrItem.each(
-                    function(i){
-                        itemArray.push(this);
-                        return itemArray;
-                    }
-                );
+                lrItem.filter(rowSpecific).each(function(){ // Review this
+                    $this.prepend(this);
+                    console.log("specific item is NOT present");
+                });
 
-                console.log($(rowChild).index($('.lr-specific')));
-
-                console.log(specificItem);
+                //console.log(specificItem);
                 console.log("specific item is present");
 
             } else {
