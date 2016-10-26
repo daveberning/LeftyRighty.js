@@ -123,7 +123,7 @@ function reverseFirstLast() { // push children into array, flip first and last
 
         var settings = $.extend({}, defaults, options);
 
-        if(settings.bootstrapSupport) { // option to check if dev is using BS
+        if(settings.bootstrap) { // option to check if dev is using BS
             rowChild = '[class^="col-"]';
             console.log(rowChild);
         }
