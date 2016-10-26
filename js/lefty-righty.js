@@ -5,6 +5,7 @@
 
     Developed by: Dave Berning & Kenny Hill
 ------------------------------------------------------ */
+
 // GLOBALS
 var rowReverse = '.lr-reverse';
 var rowFirstLast = '.lr-first-last';
@@ -117,18 +118,10 @@ function reverseFirstLast() { // push children into array, flip first and last
 
         // This is the easiest way to have default options.
         var defaults = $.extend({
-            color: "black",
-            backgroundColor: "white",
-            bootstrapSupport: false
+            bootstrap: false
         }, options);
 
         var settings = $.extend({}, defaults, options);
-
-        // // Greenify the collection based on the settings variable.
-        // return this.css({
-        //     color: settings.color,
-        //     backgroundColor: settings.backgroundColor,
-        // });
 
         if(settings.bootstrapSupport) { // option to check if dev is using BS
             rowChild = '[class^="col-"]';
