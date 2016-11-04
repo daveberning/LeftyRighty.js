@@ -5,7 +5,6 @@
 
     Developed by: Dave Berning & Kenny Hill
 ------------------------------------------------------ */
-
 // GLOBALS
 var rowReverse = '.lr-reverse';
 var rowFirstLast = '.lr-first-last';
@@ -16,6 +15,7 @@ function init() {
     $('a').on('click',function() {
         reverseAll();
         reverseFirstLast();
+        reverseSpecific();
     });
 }
 function reverseAll() { // reverse children of lr and it's children and it's children
@@ -33,12 +33,15 @@ function reverseAll() { // reverse children of lr and it's children and it's chi
                 var lrItemCount = $this.children(rowChild).length;
                 var specificItem = lrItem.filter(rowSpecific)
                 var itemArray = [];
-                var specificArray = [];
 
-                lrItem.filter(rowSpecific).each(function(){ // Review this
-                    $this.prepend(this);
-                    console.log("specific item is NOT present");
-                });
+                lrItem.each(
+                    function(i){
+                        itemArray.push(this);
+                        return itemArray;
+                    }
+                );
+
+                console.log($(rowChild).index($('.lr-specific')));
 
                 console.log(specificItem);
                 console.log("specific item is present");
@@ -86,30 +89,35 @@ function reverseFirstLast() { // push children into array, flip first and last
    $(rowFirstLast).flipFirstLast();
 }
 
-// function reverseSpecific() { // flip specific divs
-//     $.fn.flipSpecific = function() {
-//         return this.each(function() {
-//             var $this = $(this);
-//             var lrItem = $this.children(rowChild);
-//             var lrItemCount = $this.children(rowChild).length;
-//
-//             var itemArray = [];
-//
-//             lrItem.each(
-//                 function(i){
-//                     itemArray.push(this);
-//                     return itemArray;
-//                 }
-//             );
-//
-//             current = lrItem.filter('.lr-specific'),
-//             index = lrItem.index(current);
-//
-//             console.log($(lrItem).index($('.lr-specific')));
-//         });
-//    };
-//    $(rowSpecific).flipSpecific();
-// }
+function reverseSpecific() { // flip specific divs
+
+    $.fn.reverseSpecificItem = function() {
+        var itemArray = [];
+
+        $(rowSpecific).each(function(i) {
+            itemArray.push(this);
+            return itemArray;
+        });
+
+        var arrayLength = itemArray.length;
+        var lastOfArray = arrayLength -1
+
+        if (arrayLength == 2) {
+            var firstArrayItem = $(itemArray[0]);
+            var lastArrayItem = $(itemArray[lastOfArray]);
+
+            betweenFirstLast = firstArrayItem.nextUntil($(lastArrayItem)).andSelf();
+
+            $(lastArrayItem).after(betweenFirstLast);
+            $(firstArrayItem).before(betweenFirstLast);
+
+            // console.log(arrayLength);
+            // console.log("Slice: " + betweenFirstLast + ". Should read, 3214");
+        }
+   }
+
+   $(rowReverse).reverseSpecificItem();
+}
 
 
 (function ($) {
@@ -118,12 +126,20 @@ function reverseFirstLast() { // push children into array, flip first and last
 
         // This is the easiest way to have default options.
         var defaults = $.extend({
-            bootstrap: false
+            color: "black",
+            backgroundColor: "white",
+            bootstrapSupport: false
         }, options);
 
         var settings = $.extend({}, defaults, options);
 
-        if(settings.bootstrap) { // option to check if dev is using BS
+        // // Greenify the collection based on the settings variable.
+        // return this.css({
+        //     color: settings.color,
+        //     backgroundColor: settings.backgroundColor,
+        // });
+
+        if(settings.bootstrapSupport) { // option to check if dev is using BS
             rowChild = '[class^="col-"]';
             console.log(rowChild);
         }
