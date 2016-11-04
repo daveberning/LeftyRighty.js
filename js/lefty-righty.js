@@ -2,6 +2,8 @@
     Copyright (c) 2016 Parsec Digital Media, LLC
     All Rights Reserved
     Version: Development
+
+    Developed by: Dave Berning & Kenny Hill
 ------------------------------------------------------ */
 // GLOBALS
 var rowReverse = '.lr-reverse';
@@ -13,6 +15,7 @@ function init() {
     $('a').on('click',function() {
         reverseAll();
         reverseFirstLast();
+        reverseSpecific();
     });
 }
 function reverseAll() { // reverse children of lr and it's children and it's children
@@ -28,6 +31,7 @@ function reverseAll() { // reverse children of lr and it's children and it's chi
                 var $this = $(this);
                 var lrItem = $this.children(rowChild);
                 var lrItemCount = $this.children(rowChild).length;
+                var specificItem = lrItem.filter(rowSpecific)
                 var itemArray = [];
 
                 lrItem.each(
@@ -37,13 +41,10 @@ function reverseAll() { // reverse children of lr and it's children and it's chi
                     }
                 );
 
-                itemSpecificArray = itemArray.get(".lr-specific");
-                console.log(itemSpecificArray);
+                console.log($(rowChild).index($('.lr-specific')));
 
-                $this.children(lrItem).each(function(){
-                    //$this.prepend(this);
-                    console.log("specific item is present");
-                });
+                console.log(specificItem);
+                console.log("specific item is present");
 
             } else {
                 // reverse every child
@@ -88,27 +89,35 @@ function reverseFirstLast() { // push children into array, flip first and last
    $(rowFirstLast).flipFirstLast();
 }
 
-// function reverseSpecific() { // flip specific divs
-//     $.fn.flipSpecific = function() {
-//         return this.each(function() {
-//             var $this = $(this);
-//             var lrItem = $this.children(rowChild);
-//             var lrItemCount = $this.children(rowChild).length;
-//
-//             var itemArray = [];
-//
-//             lrItem.each(
-//                 function(i){
-//                     itemArray.push(this);
-//                     return itemArray;
-//                 }
-//             );
-//
-//             console.log(itemArray[2]);
-//         });
-//    };
-//    $(rowSpecific).flipSpecific();
-// }
+function reverseSpecific() { // flip specific divs
+
+    $.fn.reverseSpecificItem = function() {
+        var itemArray = [];
+
+        $(rowSpecific).each(function(i) {
+            itemArray.push(this);
+            return itemArray;
+        });
+
+        var arrayLength = itemArray.length;
+        var lastOfArray = arrayLength -1
+
+        if (arrayLength == 2) {
+            var firstArrayItem = $(itemArray[0]);
+            var lastArrayItem = $(itemArray[lastOfArray]);
+
+            betweenFirstLast = firstArrayItem.nextUntil($(lastArrayItem)).andSelf();
+
+            $(lastArrayItem).after(betweenFirstLast);
+            $(firstArrayItem).before(betweenFirstLast);
+
+            // console.log(arrayLength);
+            // console.log("Slice: " + betweenFirstLast + ". Should read, 3214");
+        }
+   }
+
+   $(rowReverse).reverseSpecificItem();
+}
 
 
 (function ($) {
