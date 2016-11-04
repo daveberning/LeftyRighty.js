@@ -8,7 +8,7 @@
 // GLOBALS
 var rowReverse = '.lr-reverse';
 var rowFirstLast = '.lr-first-last';
-var rowSpecific = '.lr-specific';
+var specificItem = '.lr-spec';
 var rowChild = '.lr-item'; // targets all bootstrap columns, default off
 
 function init() {
@@ -19,7 +19,7 @@ function init() {
     });
 }
 function reverseAll() { // reverse children of lr and it's children and it's children
-    var lrSpecificItemCount = $(rowReverse).children(rowSpecific).length;
+    var lrSpecificItemCount = $(rowReverse).children(specificItem).length;
     var lrItemCount = $(rowReverse).children(rowChild).length;
 
     $.fn.reverseChildren = function() {
@@ -31,7 +31,7 @@ function reverseAll() { // reverse children of lr and it's children and it's chi
                 var $this = $(this);
                 var lrItem = $this.children(rowChild);
                 var lrItemCount = $this.children(rowChild).length;
-                var specificItem = lrItem.filter(rowSpecific)
+                var specificItem = lrItem.filter(specificItem)
                 var itemArray = [];
 
                 lrItem.each(
@@ -41,7 +41,7 @@ function reverseAll() { // reverse children of lr and it's children and it's chi
                     }
                 );
 
-                console.log($(rowChild).index($('.lr-specific')));
+                console.log($(rowChild).index($(specificItem)));
 
                 console.log(specificItem);
                 console.log("specific item is present");
@@ -94,7 +94,7 @@ function reverseSpecific() { // flip specific divs
     $.fn.reverseSpecificItem = function() {
         var itemArray = [];
 
-        $(rowSpecific).each(function(i) {
+        $(specificItem).each(function(i) {
             itemArray.push(this);
             return itemArray;
         });
@@ -141,7 +141,6 @@ function reverseSpecific() { // flip specific divs
 
         if(settings.bootstrapSupport) { // option to check if dev is using BS
             rowChild = '[class^="col-"]';
-            console.log(rowChild);
         }
     };
 }(jQuery));
