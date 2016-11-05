@@ -92,29 +92,29 @@ function reverseFirstLast() { // push children into array, flip first and last
 function reverseSpecific() { // flip specific divs
 
     $.fn.reverseSpecificItem = function() {
-        var itemArray = [];
+        return this.each(function() {
+            var $this = $(this);
+            var lrItem = $this.children(rowChild);
+            var lrItemCount = $this.children(rowChild).length;
 
-        $(specificItem).each(function(i) {
-            itemArray.push(this);
-            return itemArray;
+            var itemArray = [];
+
+            lrItem.each(
+                function(i){
+                    itemArray.push(this);
+                    return itemArray;
+                }
+            );
+
+            var firstItem = $(itemArray)[0]; // first item
+            var centerItems = itemArray.slice(1, lrItemCount-1); // center items
+            var lastItem = $(itemArray).get(-1); // last item
+            var reverseArray = [];
+            reverseArray.push(lastItem, centerItems, firstItem); // creates new array last, center, first
+
+            $(firstItem).before(lastItem,centerItems); // this does the magic
         });
-
-        var arrayLength = itemArray.length;
-        var lastOfArray = arrayLength -1
-
-        if (arrayLength == 2) {
-            var firstArrayItem = $(itemArray[0]);
-            var lastArrayItem = $(itemArray[lastOfArray]);
-
-            betweenFirstLast = firstArrayItem.nextUntil($(lastArrayItem)).andSelf();
-
-            $(lastArrayItem).after(betweenFirstLast);
-            $(firstArrayItem).before(betweenFirstLast);
-
-            // console.log(arrayLength);
-            // console.log("Slice: " + betweenFirstLast + ". Should read, 3214");
-        }
-   }
+   };
 
    $(rowReverse).reverseSpecificItem();
 }
