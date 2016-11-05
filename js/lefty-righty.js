@@ -94,27 +94,28 @@ function reverseSpecific() { // flip specific divs
     $.fn.reverseSpecificItem = function() {
         return this.each(function() {
             var $this = $(this);
-            var lrItem = $this.children(rowChild);
-            var lrItemCount = $this.children(rowChild).length;
+            var lrItem = $this.children(specificItem);
+            var lrItemCount = $this.children(specificItem).length;
 
-            var itemArray = [];
+            itemArray = [];
 
-            lrItem.each(
-                function(i){
-                    itemArray.push(this);
-                    return itemArray;
-                }
-            );
+            lrItem.each(function(i) {
+                itemArray.push(this);
+                return itemArray;
+            });
 
-            var firstItem = $(itemArray)[0]; // first item
-            var centerItems = itemArray.slice(1, lrItemCount-1); // center items
-            var lastItem = $(itemArray).get(-1); // last item
-            var reverseArray = [];
-            reverseArray.push(lastItem, centerItems, firstItem); // creates new array last, center, first
+            var arrayLength = itemArray.length;
+            var lastOfArray = arrayLength -1
 
-            $(firstItem).before(lastItem,centerItems); // this does the magic
+            var firstArrayItem = $(itemArray[0]);
+            var lastArrayItem = $(itemArray[lastOfArray]);
+
+            betweenFirstLast = firstArrayItem.nextUntil($(lastArrayItem)).andSelf();
+
+            $(lastArrayItem).after(betweenFirstLast);
+            $(firstArrayItem).before(betweenFirstLast);
         });
-   };
+   }
 
    $(rowReverse).reverseSpecificItem();
 }
