@@ -23,36 +23,29 @@
 </head>
 
 <body>
-
-    <header>
-        <div class="row">
-            <div>
-                <div class="col-sm-4">Logo</div>
-                <div class="col-sm-4">nav</div>
-                <div class="col-sm-4">Flip</div>
-            </div>
-        </div>
-    </header>
-
     <div class="container">
         <div class="row lr-first-last">
-            <div class="col-sm-3 lr-item lr-spec one">1</div>
-            <div class="col-sm-3 lr-item lr-spec two">2</div>
-            <div class="col-sm-3 lr-item three">3
+            <div class="lr-item fourth lr-spec one">1</div>
+            <div class="lr-item fourth lr-spec two">2</div>
+            <div class="lr-item fourth three">3
                 <div class="row lr-reverse">
-                    <div class="col-sm-3 lr-item lr-spec one">1</div>
-                    <div class="col-sm-3 lr-item two">2</div>
-                    <div class="col-sm-3 lr-item lr-spec three">3</div>
-                    <div class="col-sm-3 lr-item four">4cfghbv </div>
+                    <div class="lr-item fourth lr-spec text-left one">1</div>
+                    <div class="lr-item fourth two">2</div>
+                    <div class="lr-item fourth lr-spec three">3</div>
+                    <div class="lr-item fourth four">4cfghbv </div>
                 </div>
             </div>
-            <div class="col-sm-3 lr-item four">4</div>
+            <div class="lr-item fourth four">4</div>
         </div>
+
+        <div class="lr-toggle">Flip</div>
     </div>
 </body>
 
 <script>
-    $('body').leftyrighty();
+    $('body').leftyrighty({
+        mobileOnly: true
+    });
 </script>
 
 </html>

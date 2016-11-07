@@ -1,8 +1,64 @@
+.lr-popup {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    left: 5%;
+    top: 5%;
+    background: rgba(0, 0, 0, .9);
+    padding: 15px;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.lr-popup > div {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lr-popup > div > p {
+    font-size: 2rem;
+}
+
+.lr-popup .row {
+    padding: 15px;
+}
+
+.lr-popup svg {
+    max-width: 150px;
+    width: 100%;
+}
+
+.lr-popup .left,
+.lr-popup .right,
+.lr-popup .lr-close {
+    width: 48%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    float:left;
+    margin-bottom: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.lr-popup .lr-close {
+    width: 100%;
+}
+
+.lr-popup .left {
+    margin-right: 4%;
+}
+
+/* --- */
+
 .lr-item {
     border: 1px solid;
     background: purple;
     padding: 10px;
     margin: 15px 0;
+    text-align: left;
     color: white;
 }
 
@@ -10,19 +66,6 @@
     background: blue;
 }
 
-.toggle {
-    width: 50px;
-    height: 50px;
-    background: blue;
-    position: absolute;
-    right:0;
-    top:100px;
-    display: block;
-}
-
-.toggle>div {
-    display: none;
-}
 .row .lr-item.two {
     background: red;
 }
@@ -49,9 +92,8 @@
     border-radius: 3px;
 }
 
-.a:hover {
+a:hover {
     text-decoration: none !important;
-    cursor: pointer;
 }
 
 .fourth {
