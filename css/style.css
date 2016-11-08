@@ -51,6 +51,10 @@
     margin-right: 4%;
 }
 
+.lr-spec {
+    float: right;
+}
+
 /* --- */
 
 .lr-item {

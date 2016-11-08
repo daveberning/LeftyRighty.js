@@ -24,18 +24,9 @@
 
 <body>
     <div class="container">
-        <div class="row lr-first-last">
-            <div class="lr-item fourth lr-spec one">1</div>
-            <div class="lr-item fourth lr-spec two">2</div>
-            <div class="lr-item fourth three">3
-                <div class="row lr-reverse">
-                    <div class="lr-item fourth lr-spec text-left one">1</div>
-                    <div class="lr-item fourth two">2</div>
-                    <div class="lr-item fourth lr-spec three">3</div>
-                    <div class="lr-item fourth four">4cfghbv </div>
-                </div>
-            </div>
-            <div class="lr-item fourth four">4</div>
+        <div class="row lr-reverse">
+            <div class="lr-item fourth lr-spec one">Lorem Lorem Lorem Lorem</div>
+            <div class="lr-item fourth lr-spec two">Lorem Lorem Lorem Lorem</div>
         </div>
 
         <div class="lr-toggle">Flip</div>
@@ -44,7 +35,10 @@
 
 <script>
     $('body').leftyrighty({
-        mobileOnly: true
+        mobileOnly: true,
+        detectTextAlign: true,
+        detectPosition: true,
+        showPopup: true
     });
 </script>
 
