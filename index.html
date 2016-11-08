@@ -78,18 +78,62 @@
 
         <div class="row">
             <div class="container-fluid">
-                <p><strong>Options:</strong></p>
-                <ul>
-                    <li>bootstrap: false,</li>
-                    <li>showToggleButton: true,</li>
-                    <li>showPopup: true,</li>
-                    <li>defaultHand: "right",</li>
-                    <li>showOptimizationNotice: true,</li>
-                    <li>popupDelay: 1500,</li>
-                    <li>detectTextAlign: false,</li>
-                    <li>detectFloat: false,</li>
-                    <li>detectPosition: false</li>
-                </ul>
+                <div class="col-sm-6 col-sm-offset-3">
+                    <table class="table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>Default Value</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>bootstrap</td>
+                            <td>false</td>
+                            <td>Boolean</td>
+                        </tr>
+                        <tr>
+                            <td>showToggleButton</td>
+                            <td>true</td>
+                            <td>Boolean</td>
+                        </tr>
+                        <tr>
+                            <td>showPopup</td>
+                            <td>true</td>
+                            <td>Boolean</td>
+                        </tr>
+                        <tr>
+                            <td>defaultHand</td>
+                            <td>"right"</td>
+                            <td>String</td>
+                        </tr>
+                        <tr>
+                            <td>showOptimizationNotice</td>
+                            <td>true</td>
+                            <td>Boolean</td>
+                        </tr>
+                        <tr>
+                            <td>popupDelay</td>
+                            <td>1500</td>
+                            <td>Int</td>
+                        </tr>
+                        <tr>
+                            <td>detectTextAlign</td>
+                            <td>false</td>
+                            <td>Boolean</td>
+                        </tr>
+                        <tr>
+                            <td>detectFloat</td>
+                            <td>false</td>
+                            <td>Boolean</td>
+                        </tr>
+                        <tr>
+                            <td>detectPosition</td>
+                            <td>false</td>
+                            <td>Boolean</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -97,11 +141,7 @@
 
 <script>
     $('body').leftyrighty({
-        mobileOnly: true,
-        detectPosition: true,
-        showPopup: true,
-        bootstrap: true,
-        detectTextAlign: true
+        bootstrap: true
     });
 </script>
 
