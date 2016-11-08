@@ -110,7 +110,7 @@ function reverseSpecific() { // flip specific divs
             $(firstArrayItem).before(betweenFirstLast);
         });
    }
-   $(rowReverse).reverseSpecificItem();
+   $(standardRow).reverseSpecificItem();
 }
 
 (function ($) {

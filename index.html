@@ -23,22 +23,85 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
+        <h1>Lefty Righty Demo</h1>
+
         <div class="row lr-reverse">
-            <div class="lr-item fourth lr-spec one">Lorem Lorem Lorem Lorem</div>
-            <div class="lr-item fourth lr-spec two">Lorem Lorem Lorem Lorem</div>
+            <div class="col-sm-2">
+                <div class="item" style="background: #2C9676;">
+                    Item<br><span>1</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+                <div class="item" style="background: #9E4D83;">
+                    Item<br><span>2</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+                <div class="item" style="background: #53BBB4;">
+                    Item<br><span>3</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+                <div class="item" style="background: #5CB860;">
+                    Item<br><span>4</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+                <div class="item" style="background: #EB7728;">
+                    Item<br><span>5</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+                <div class="item" style="background: #20898C;">
+                    Item<br><span>6</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
         </div>
 
-        <div class="lr-toggle">Flip</div>
+        <div class="row">
+            <div class="col-sm-3 col-sm-offset-5">
+                <div class="lr-toggle a">Flip</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="container-fluid">
+                <p><strong>Options:</strong></p>
+                <ul>
+                    <li>bootstrap: false,</li>
+                    <li>showToggleButton: true,</li>
+                    <li>showPopup: true,</li>
+                    <li>defaultHand: "right",</li>
+                    <li>showOptimizationNotice: true,</li>
+                    <li>popupDelay: 1500,</li>
+                    <li>detectTextAlign: false,</li>
+                    <li>detectFloat: false,</li>
+                    <li>detectPosition: false</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </body>
 
 <script>
     $('body').leftyrighty({
         mobileOnly: true,
-        detectTextAlign: true,
         detectPosition: true,
-        showPopup: true
+        showPopup: true,
+        bootstrap: true,
+        detectTextAlign: true
     });
 </script>
 
