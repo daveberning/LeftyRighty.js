@@ -230,5 +230,10 @@ function reverseSpecific() { // flip specific divs
                 popup.css("display", "none");
             });
         }
+
+        if(settings.bootstrap) { // option to check if dev is using BS
+            rowChild = '[class^="col-"]';
+            console.log(rowChild);
+        }
     };
 }(jQuery));
