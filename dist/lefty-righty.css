@@ -1,0 +1,45 @@
+.lr-popup {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    left: 5%;
+    top: 5%;
+    background: rgba(0, 0, 0, .9);
+    padding: 15px;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.lr-popup > div {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 15px;
+}
+
+.lr-popup svg {
+    max-width: 150px;
+    width: 100%;
+}
+
+.lr-popup .left,
+.lr-popup .right,
+.lr-popup .lr-close {
+    width: 48%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    float:left;
+    margin-bottom: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.lr-popup .lr-close {
+    width: 100%;
+}
+
+.lr-popup .left {
+    margin-right: 4%;
+}
