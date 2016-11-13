@@ -13,6 +13,7 @@ Connect your JavaScript and CSS dependancies and initialize.
 ### Dependancies
 ```html
 <link rel="stylesheet" href="css/lefty-righty.css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="js/lefty-righty.min.js"></script>
 
