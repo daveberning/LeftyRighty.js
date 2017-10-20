@@ -1,6 +1,6 @@
 # LeftyRighty.js
 
-LeftyRighty is a plugin developed by Parsec Digital to make the mobile web easier to use for everyone. LeftyRighty will flip important elements in a row to make crucial elements easier to reach with one hand. LeftyRighty was built for the physically disabled and handicapped.
+LeftyRighty is a plugin developed by Dave Berning to make the mobile web easier to use for everyone. LeftyRighty will flip important elements in a row (Bootstrap 3) to make crucial elements easier to reach with one hand. LeftyRighty was built for the physically disabled and handicapped.
 
 This was inspired by looking at mobile heat maps of comfortable thumb reaches for larger devices. Tapping on an important CTA on the right side of the screen is very difficult for someone with only a left hand to do. LeftyRighty will flip that CTA to make it easier for that individual. 
 
