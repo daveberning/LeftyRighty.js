@@ -15,22 +15,22 @@
   <body>
     <div class="container-fluid">
       <h1>Lefty Righty Demo</h1>
-      <div class="row">
-        <div class="col-sm-2">
+      <div class="row bar">
+        <div class="col-sm-2 lr-item">
           <div class="item" style="background: #2C9676;">
             Item<br>
             <span>1</span>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-2 lr-item">
           <div class="item" style="background: #9E4D83;">
             Item<br>
             <span>2</span>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-2 lr-item">
           <div class="item" style="background: #53BBB4;">
             Item<br>
             <span>3</span>
@@ -59,13 +59,13 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-3 col-sm-offset-5">
+      <div class="row foo">
+        <div class="col-sm-3 col-sm-offset-5 lr-item">
           <div class="lr-toggle a">Flip</div>
         </div>
       </div>
       <div class="row">
-        <div class="container-fluid">
+        <div class="container-fluid lr-item">
           <div class="col-sm-6 col-sm-offset-3">
             <table class="table-bordered">
               <thead>
@@ -127,6 +127,8 @@
     </div>
   </body>
   <script>
-    var myPlugin = new LeftyRighty('body')
+    var leftyRighty = new LeftyRighty(document.getElementsByTagName('body')[0], {
+      row: 'row'
+    });
   </script>
 </html>
